@@ -23,6 +23,7 @@ def enumerate_files(enumerate_directory) :
 def zip_files(zip, directory) :
     shutil.make_archive(zip, 'zip', directory)
 
+#fonction for sort files
 def sort_files(location) :
     directory = os.listdir(location)
     os.chdir(location)
@@ -44,14 +45,14 @@ def sort_files(location) :
     
 #add argparse argument
 parser = argparse.ArgumentParser(description="Rename your files")
-parser.add_argument("-d", "--destination", type=str, help="List directories and files")
-parser.add_argument("-l", "--location", type=str, help="List directories and files")
-parser.add_argument("-ed", "--enumerate_directory", type=str, help="List directories and files")
-parser.add_argument("-s", "--sort_file", action='store_true', help="List directories and files")
+parser.add_argument("-d", "--destination", type=str, help="Destination of directories and files")
+parser.add_argument("-l", "--location", type=str, help="Location of directories and files")
+parser.add_argument("-ed", "--enumerate_directory", type=str, help="Create list of files")
+parser.add_argument("-s", "--sort_file", action='store_true', help="Sort files in different directories")
 parser.add_argument("-ld", "--list_directory", type=str, help="List directories and files")
 parser.add_argument("-f", "--file", type=str, help="Choice of your file")
 parser.add_argument("-nf","--new_file", type=str, help="Name of the new file")
-parser.add_argument("-z","--zip", type=str, help="Name of the new file")
+parser.add_argument("-z","--zip", type=str, help="Zip a directory")
 args = parser.parse_args()
 
 #List dir with -ld argument
@@ -69,6 +70,7 @@ elif args.enumerate_directory :
 #ZIP file
 elif args.zip and args.directory :
     zip_files(args.zip, args.directory) 
-    
+
+#Sort file
 elif args.sort_file :
     sort_files(args.location)
