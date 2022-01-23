@@ -16,8 +16,9 @@ def rename_file(location, file, new_file) :
 def enumerate_files(location) :
     directory = os.listdir(location)
     os.chdir(location)
-    for i, file in enumerate(directory, start=1) :
-        os.rename(file, str(i) + "_" + file)
+    for i, file in enumerate(directory, start=0) :
+        if os.path.isfile(file) == True:
+            os.rename(file, str(i) + "_" + file)
 
 #fonction for zip files
 def zip_files(location, destination) :
