@@ -20,9 +20,8 @@ def enumerate_files(location) :
         os.rename(file, str(i) + "_" + file)
 
 #fonction for zip files
-def zip_files(location ,zip, destination) :
-    os.chdir(location)
-    shutil.make_archive(zip, 'zip', destination)
+def zip_files(location, destination) :
+    shutil.make_archive(location, 'zip', destination)
 
 #fonction for sort files
 def sort_files(location) :
@@ -55,14 +54,14 @@ def remove_filename_space(location) :
 #add argparse argument
 parser = argparse.ArgumentParser(description="Rename your files")
 parser.add_argument("-l", "--location", required="true",type=str, help="Location of directories and files")
+parser.add_argument("-f", "--file", type=str, help="Choice of your file")
+parser.add_argument("-nf","--new_file", type=str, help="Name of the new file")
+parser.add_argument("-d", "--destination", type=str, help="Destination of directories and files")
 parser.add_argument("-s", "--sort_file", action='store_true', help="Sort files in different directories")
 parser.add_argument("-ld", "--list_directory", action='store_true', help="List files and directories")
 parser.add_argument("-ed", "--enumerate_directory", action='store_true', help="Create list of files")
 parser.add_argument("-rs", "--remove_space", action='store_true', help="Remove filename space")
-parser.add_argument("-f", "--file", type=str, help="Choice of your file")
-parser.add_argument("-nf","--new_file", type=str, help="Name of the new file")
-parser.add_argument("-z","--zip", type=str, help="Zip a directory") #How add an file in this argument (-z file1 file2 file3) ?
-parser.add_argument("-d", "--destination", type=str, help="Destination of directories and files")
+parser.add_argument("-z","--zip", action='store_true', help="Zip a directory")
 args = parser.parse_args()
 
 #Call the fonction for list dir with -ld argument
@@ -79,7 +78,7 @@ elif args.location and args.enumerate_directory :
     
 #Call the fonction for ZIP files
 elif args.location and args.zip and args.destination :
-    zip_files(args.location, args.zip, args.destination) 
+    zip_files(args.location, args.destination) 
 
 #Call the fonction for sorts files
 elif args.location and args.sort_file :
