@@ -17,7 +17,7 @@ def enumerate_files(location) :
     directory = os.listdir(location)
     os.chdir(location)
     for i, file in enumerate(directory, start=0) :
-        if os.path.isfile(file) == True:
+        if os.path.isfile(file) is True:
             os.rename(file, str(i) + "_" + file)
 
 #function for zip files
@@ -60,7 +60,7 @@ parser.add_argument("-nf","--new_file", type=str, help="Name of the new file")
 parser.add_argument("-d", "--destination", type=str, help="Destination of directories and files")
 parser.add_argument("-s", "--sort_file", action='store_true', help="Sort files in different directories")
 parser.add_argument("-ld", "--list_directory", action='store_true', help="List files and directories")
-parser.add_argument("-ed", "--enumerate_directory", action='store_true', help="Create list of files")
+parser.add_argument("-ef", "--enumerate_files", action='store_true', help="Create list of files")
 parser.add_argument("-rs", "--remove_space", action='store_true', help="Remove filename space")
 parser.add_argument("-z","--zip", action='store_true', help="Zip a directory")
 args = parser.parse_args()
@@ -74,7 +74,7 @@ elif args.location and args.file and args.new_file :
     rename_file(args.location, args.file, args.new_file)
 
 #Call the function for add a number in front of the file name to create a list
-elif args.location and args.enumerate_directory :
+elif args.location and args.enumerate_files :
     enumerate_files(args.location)
     
 #Call the function for ZIP files
