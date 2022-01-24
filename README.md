@@ -11,7 +11,7 @@ This python script is a file renamer that works with argparse. It will allow you
 
 You can get help with the command :
 
-    python3 main.py -h
+    python3 file_rename.py -h
     
      optional arguments:
      
@@ -30,37 +30,37 @@ You can get help with the command :
 
 You can list files and folders, the command is :
 
-    python3 main.py -l [The folder path of your choice] -ld
+    python3 file_rename.py -l [The folder path of your choice] -ld
     
 ## Rename a file
 
 You can rename a file, the command is :
 
-    python3 main.py -l [The folder path of your choice] -f [Your filename] -nf [The new filename]
+    python3 file_rename.py -l [The folder path of your choice] -f [Your filename] -nf [The new filename]
     
 ## Enumerate files to create a list
 
 You can create a list, your files will be renamed with a number before the filename, the command is :
 
-    python3 main.py -l [The folder path of your choice] -ed
+    python3 file_rename.py -l [The folder path of your choice] -ed
     
 ## Zip a folder of your choice
 
 You can zip a folder, the command is :
 
-    python3 main.py -z -l [The folder path of your choice] -d [The destination path of your choice]
+    python3 file_rename.py -z -l [The folder path of your choice] -d [The destination path of your choice]
     
 ## Classify files types into folders
 
 You can classify files (pdf, txt, png, jpg) into differents folders, the command is :
 
-    python3 main.py -l [The folder path of your choice] -s
+    python3 file_rename.py -l [The folder path of your choice] -s
 
 ## Remove spaces in filenames
 
 You can remove spaces in filenames, the command is :
 
-    python3 main.py -l [The folder path of your choice] -rs
+    python3 file_rename.py -l [The folder path of your choice] -rs
  
 
 
